@@ -19,7 +19,7 @@ gridItems.forEach(item => {
         artTitle.textContent = item.getAttribute('data-title');
         artYear.textContent = item.getAttribute('data-year');
         artTechnique.textContent = item.getAttribute('data-technique');
-        console.log('cambio, soy el elemento', item.getAttribute('data-title'));
+        // console.log('cambio, soy el elemento', item.getAttribute('data-title'));
     });
 });
 
