@@ -29,14 +29,29 @@
         </div>
 
         <!-- Sección E -->
-        <div class="section-e">
+        <div class="section-statement">
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quibusdam ipsam itaque eveniet accusantium optio quis ab delectus. Tenetur laboriosam odit laudantium quisquam expedita sint, dolore iure! Obcaecati, veritatis repellat!
             </p>
             
         </div>
         
-        <div class="section-c"></div>
+        <div class="section-canvas">
+            <section class="container-canvas">
+                <div id="toolbar">
+                    <!-- <p>dibuja</p> -->
+
+                    <!-- <label for="stroke" style="display: none;">Stroke</label>
+                    <input id="stroke" name='stroke' type="color" style="display: none;">
+                    <label for="lineWidth" style="display: none;">Line Width</label>
+                    <input id="lineWidth" name='lineWidth' type="number" value="1" style="display: none;"> -->
+                    <p id="clear">borrar</p>
+                </div>
+                <div class="drawing-board">
+                    <canvas id="drawing-board"></canvas>
+                </div>
+            </section>
+        </div>
 
         <!-- Sección F ** abrir solo en mobile **  --> 
         <div class="section-f" style="display: none;">
@@ -47,6 +62,7 @@
         </div>
 
         <script src="./preloading.js"></script>
+        <script src="./canvas.js"></script>
         <!-- <script src="./hidehtml.js"></script> -->
 </body>
 </html>

@@ -2,7 +2,8 @@
 @import url('https://fonts.cdnfonts.com/css/cabinet-grotesk');
 
 .section-b::-webkit-scrollbar,
-.section-e::-webkit-scrollbar{
+.section-e::-webkit-scrollbar,
+.section-statement::-webkit-scrollbar{
     display: none;
   }
 
@@ -18,6 +19,7 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    cursor: crosshair;
 }
 
 .section-a a{
@@ -62,6 +64,7 @@ body {
     text-align: left;
     border-right: 1px solid #ccc;
     text-align: right;
+    z-index: 3;
 
 }
 
@@ -178,20 +181,27 @@ body {
     padding: 100px 20px;
     background-color: whitesmoke;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.section-e h2{
+.section-e h2,
+.section-statement h2{
     font-family: 'Satoshi', sans-serif;
     font-weight: 600;
     font-size: 1rem;
 }
-.section-e h3{
+.section-e h3,
+.section-statement h3{
     font-family: 'Satoshi', sans-serif;
     font-weight: 600;
     font-size: 0.90rem;
 }
 
-.section-e p{
+.section-e p,
+.section-statement p{
     font-family: 'Cabinet Grotesk', sans-serif;
     font-size: 0.80rem;
     text-align: justify;
@@ -203,7 +213,8 @@ body {
     align-items: center;
     height: 50px;
 }
-.contact, .catalogo{
+.contact, 
+.catalogo{
     padding-top: 40px;
     display: flex;
     gap: 20px;
@@ -249,6 +260,9 @@ body {
 
 
 /*BIO CV*/
+.bio{
+    padding-top: 40px;
+}
 .cv{
     padding-top: 40px;
 }
@@ -267,10 +281,75 @@ body {
 .section-b-mobile{
     display: none;
 }
+.carnet {
+    width: 24vw;
+    height: auto;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+}
+
+    
+/* STATEMENT CANVAS*/
+#toolbar {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 70px;
+}
+
+#toolbar * {
+    margin-bottom: 6px;
+}
+
+#toolbar label {
+    font-size: 12px;
+}
+
+#toolbar input {
+    width: 100%;
+}
+
+#toolbar button {
+    background-color: #1565c0;
+    border: none;
+    border-radius: 4px;
+    color:white;
+    padding: 2px;
+}
+
+#clear{
+    position: fixed;
+    top: 1vw;
+    right: 10vw;
+    cursor:pointer;
+    
+    font-size: 0.8rem;
+}
+
+.section-canvas{
+    position: fixed;
+    height: 100vw;
+    width: 80vw;
+    right: 20vw;
+    top: -1vw;
+    z-index: 2;
+}
+
+.section-statement {
+    padding: 100px 20px;
+    background-color: whitesmoke;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
 
 
-/* Para dispositivos móviles */
-/* @media (max-width: 768px) { */
 @media (max-width: 1025px) {
     body{
         overflow-y: hidden;
@@ -306,7 +385,6 @@ body {
     #section-a.active {
         transform: translateX(0);
     }
-    /* Estilo para el menú cuando está activo */
     #menu.active {
         transform: translateX(0);
     }
@@ -327,14 +405,12 @@ body {
         overflow-x: hidden;
     }
 
-    /* Panel C (arriba): Ocupa 3/5 partes */
     .section-c {
         max-height: 65;
         max-width: 100%;
         overflow-y: hidden;
     }
 
-    /* Panel B (abajo): Ocupa 2/5 partes */
     .section-b{
         display: none;
     }
@@ -379,5 +455,23 @@ body {
     }
     .section-a nav ul {
         font-size: 1.1rem;
+    }
+
+    .inline-estudios{
+        display: block;
+        gap: 20px;
+        align-items: center;
+        height: 50px;
+    }
+    .carnet{
+        width: 35vw;
+        height: auto;
+        position: absolute;
+        right: 0;
+        top: 20px;
+    }
+    .contact{
+        display: contents;
+        margin-bottom: 20px;
     }
 }

@@ -16,9 +16,7 @@ const updatePreview = (item) => {
     } else{
         const parentLink = item.closest('a'); 
         if (parentLink) {
-            
             previewImage.setAttribute('onclick', `window.location.href='${parentLink}'`);
-            // previewImage.parentElement.href = parentLink.getAttribute('href'); 
         }
     }
 };
@@ -45,10 +43,9 @@ const setPreviewLinkByTitle = () => {
             hrefLink = ''; 
     }
     if (hrefLink) {
-        // Solo si hay un link, embebemos un enlace en la imagen de preview
         previewImage.setAttribute('onclick', `window.location.href='${hrefLink}'`);
     } else {
-        previewImage.removeAttribute('onclick'); // Si no hay link, quitamos el atributo
+        previewImage.removeAttribute('onclick'); 
     }
 };
 
@@ -65,15 +62,14 @@ gridItems.forEach(item => {
     } 
 });
 
-// Añadir evento para resetear cuando se haga clic o toque fuera de los grid-items
+
 document.addEventListener('click', (event) => {
-    const isGridItem = event.target.closest('.grid-item'); // Verifica si se hizo clic en un grid-item
+    const isGridItem = event.target.closest('.grid-item'); 
     if (!isGridItem) {
-        resetPreview(); // Si no es un grid-item, resetea la vista previa
+        resetPreview();
     }
 });
 
-// Para dispositivos móviles: también añadimos 'touchstart'
 document.addEventListener('touchstart', (event) => {
     const isGridItem = event.target.closest('.grid-item');
     const isPreviewImage = event.target === previewImage; 
