@@ -289,8 +289,8 @@ body {
     .mobile-menu-btn {
         display: block;
         position: absolute;
-        top: 15px;
-        left: 10px;
+        top: 25px;
+        left: 5px;
         font-size: 2rem;
         font-family: 'Satoshi', sans-serif;
         font-weight: 100;
@@ -311,8 +311,8 @@ body {
     
     .close-menu-btn {
         display: block;
-        top: 17px;
-        left: 17px;
+        top: 20px;
+        left: 10px;
         font-size: 3rem;
         font-family: 'Satoshi', sans-serif;
         font-weight: 100;
