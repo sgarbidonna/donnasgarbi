@@ -237,12 +237,20 @@ body {
     align-items: center;
     height: 50px;
 }
+.contact, .catalogo{
+    padding-top: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 50px;
+}
 .section-e h4{
     font-family: 'Satoshi', sans-serif;
     font-weight: 600;
     font-size: 0.80rem;
 }
-.inline-estudios a{
+.contact a,
+.catalogo a{
     color: red;
 }
 
@@ -271,4 +279,10 @@ body {
 }
 .fancybox__container.is-animated[aria-hidden=false] .fancybox__thumbs {
     display: none;
+}
+
+
+/*BIO CV*/
+.cv{
+    padding-top: 40px;
 }
