@@ -289,7 +289,7 @@ body {
     .mobile-menu-btn {
         display: block;
         position: absolute;
-        top: 25px;
+        top: 15px;
         left: 10px;
         font-size: 2rem;
         font-family: 'Satoshi', sans-serif;
@@ -298,6 +298,7 @@ body {
         border: none;
         cursor: pointer;
         z-index: 1000;
+        color: black;
     }
     
     #section-a.active {
@@ -310,11 +311,12 @@ body {
     
     .close-menu-btn {
         display: block;
-        top: 20px;
+        top: 17px;
         left: 17px;
         font-size: 3rem;
         font-family: 'Satoshi', sans-serif;
         font-weight: 100;
+        color: black;
     }
     
     .container {
