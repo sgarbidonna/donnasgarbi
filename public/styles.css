@@ -322,7 +322,8 @@ body {
     .container {
         display: flex;
         flex-direction: column-reverse;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     /* Panel C (arriba): Ocupa 3/5 partes */
