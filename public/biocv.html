@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donna Sgarbi - Portafolio</title>
-    
+    <title>Donna Sgarbi</title>
+    <link rel="icon" type="image/jpg" href="./images/donnasgarbi-favicon.png"/>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="preload" as="font" crossorigin>
-    <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="preload" as="font" crossorigin>                
+    <!-- <link href="https://fonts.cdnfonts.com/css/satoshi" rel="preload" as="font" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="preload" as="font" crossorigin>               -->
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">         
 </head>
 <body>
-    
+    <div class="fullscreen" id="loading-screen"></div>
+
     <div class="container">
         <!-- Sección A -->
         <div class="section-a">
@@ -28,21 +31,39 @@
         <div class="section-e">
             <div class="bio">
                 <h2> BIO </h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quibusdam ipsam itaque eveniet accusantium optio quis ab delectus. Tenetur laboriosam odit laudantium quisquam expedita sint, dolore iure! Obcaecati, veritatis repellat!
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quibusdam ipsam itaque eveniet accusantium optio quis ab delectus. Tenetur laboriosam odit laudantium quisquam expedita sint, dolore iure! Obcaecati, veritatis repellat!
                 </p>
     
             </div>
             <div class="cv">
                 <h2> CV </h2>
-                <h3> 2020 </h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit aspernatur reiciendis quod sapiente neque magnam totam earum quaerat dolorem nihil dicta dolore, enim omnis debitis consectetur! Adipisci consectetur deserunt unde! </p>
-                <h3> 2021 </h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit aspernatur reiciendis quod sapiente neque magnam totam earum quaerat dolorem nihil dicta dolore, enim omnis debitis consectetur! Adipisci consectetur deserunt unde! </p>
+                <div class="inline-estudios"> <h4>2013 - 2018</h4> <p>Lic. en Artes Plásticas Or. Escenografía - UNLP </p></div>
+                <div class="inline-estudios"> <h4>2021 - 2022</h4> <p>Programa de Artistas - Universidad Torcuato di Tella </p></div>
+                <div class="inline-estudios"> <h4>2018 - 2024</h4> <p>Analista Programador Universitario - UNLP </p></div>
+                
+                <h3>2020 </h3>
+                <p>Expo Grupal “La Gesta” - Casa M, La Plata, Argentina</p>
+                <p>Junto a Galería Vincent (City Bell) participé en Panorama, ARTEBA versión Online</p>
+                    
+                <h3>2021 </h3>
+                <p>Expo Grupal y federal (tuvo sedes en 13 ciudades de Argentina y España) “Código de Origen” - Asociación Francesa, Tucumán. En el marco del Programa de Artistas, UTDT </p>
+
+                <h3>2022</h3>
+                <p>Solo Expo “Ritmo” - Galería Pionera, Pinamar</p>
+                <p>Expo Grupal “Luz sobre los meridianos” - Universidad di Tella</p>
+                <p>Publicación “Flashes” - Universidad di Tella</p>
+                <p>Expo Grupal “Loosenart” - Espacio Millepiani, Roma, Italia</p>
+
+                <h3>2023</h3>
+                <p>Expo Grupal “Perspective 2023” - Museo CICA, Corea del Sur </p>
+                <p>Expo Grupal en el marco de Arte Joven, Museo Provincial de Bellas Artes Emilio Petorutti</p>
+                <p>Beca en Residencia Coordenadas, Buenos Aires, Argentina</p>
+                <p>Expo cierre</p>
+                <p></p>
 
             </div>        
 
-            <div class="contact">
+            <div class="inline-estudios">
                 <p> sgarbidonna@gmail.com </p>
                 <p> +54 221 6733750</p>
                 <p> @d0nn4s </p>
@@ -55,6 +76,7 @@
         <div class="section-c"></div>
 
 
+        <script src="./preloading.js"></script>
 
 </body>
 </html>
