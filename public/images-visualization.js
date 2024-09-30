@@ -10,8 +10,47 @@ const updatePreview = (item) => {
     artTitle.textContent = item.getAttribute('data-title');
     artYear.textContent = item.getAttribute('data-year');
     artTechnique.textContent = item.getAttribute('data-technique');
+    
+    if (window.innerWidth < 768) {
+        setPreviewLinkByTitle();
+    } else{
+        const parentLink = item.closest('a'); 
+        if (parentLink) {
+            
+            previewImage.setAttribute('onclick', `window.location.href='${parentLink}'`);
+            // previewImage.parentElement.href = parentLink.getAttribute('href'); 
+        }
+    }
 };
 
+const resetPreview = () => {
+    previewImage.setAttribute('src', '');
+    artTitle.textContent = '';
+    artYear.textContent = '';
+    artTechnique.textContent = '';
+};
+// Función que agrega un enlace al previewImage basado en el artTitle
+const setPreviewLinkByTitle = () => {
+    let hrefLink = ''; 
+
+    switch (artTitle.textContent) {
+        case 'Obra 1':
+            hrefLink = './01-obra1.html'; 
+            break;
+        case 'Obra 2':
+            hrefLink = './02-obra2.html'; 
+            break;
+        // Añadir más casos según sea necesario
+        default:
+            hrefLink = ''; 
+    }
+    if (hrefLink) {
+        // Solo si hay un link, embebemos un enlace en la imagen de preview
+        previewImage.setAttribute('onclick', `window.location.href='${hrefLink}'`);
+    } else {
+        previewImage.removeAttribute('onclick'); // Si no hay link, quitamos el atributo
+    }
+};
 
 gridItems.forEach(item => {
     if (window.innerWidth >= 768) {
@@ -24,6 +63,23 @@ gridItems.forEach(item => {
             updatePreview(item);
         });
     } 
+});
+
+// Añadir evento para resetear cuando se haga clic o toque fuera de los grid-items
+document.addEventListener('click', (event) => {
+    const isGridItem = event.target.closest('.grid-item'); // Verifica si se hizo clic en un grid-item
+    if (!isGridItem) {
+        resetPreview(); // Si no es un grid-item, resetea la vista previa
+    }
+});
+
+// Para dispositivos móviles: también añadimos 'touchstart'
+document.addEventListener('touchstart', (event) => {
+    const isGridItem = event.target.closest('.grid-item');
+    const isPreviewImage = event.target === previewImage; 
+    if (!isGridItem && !isPreviewImage) { 
+        resetPreview();
+    }
 });
 
 
