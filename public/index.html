@@ -23,9 +23,11 @@
     <div class="fullscreen" id="loading-screen"></div>
 
 
+    <button id="toggle-menu" class="mobile-menu-btn">☰</button>
     <div class="container" id="container">
         <!-- Sección A -->
-        <div class="section-a">
+        <div class="section-a" id="section-a">
+        <button id="close-menu-btn" class="close-menu-btn">&times;</button>
             <a href="./index.html"><h1>DONNA SGARBI</h1></a>
             <nav>
                 <ul>
@@ -39,7 +41,7 @@
         <!-- Sección B -->
         <div class="section-b">
 
-            <!-- <div class="grid">
+            <div class="grid">
                 <a href="./01-obra1.html">
                   <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
                 </a>
@@ -47,7 +49,26 @@
                   <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
                 </a>
                 
-            </div> -->
+            </div>
+
+        </div>
+        <div class="section-b-mobile">
+
+            <div class="grid">
+
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+
+                
+            </div>
 
         </div>
 
@@ -68,8 +89,8 @@
 
     <script src="./images-visualization.js"></script>
     <script src="./preloading.js"></script>
-    <script src="./hidehtml.js"></script>
-
+    <!-- <script src="./hidehtml.js"></script> -->
+    <script src="menu-mobile.js"></script>
    
 
 </body>

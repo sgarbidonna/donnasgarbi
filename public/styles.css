@@ -171,40 +171,6 @@ body {
     font-size: 0.80rem;
 }
 
-/* Popup Gallery (Sección D) */
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    position: relative;
-    max-width: 80%;
-    margin: auto;
-}
-
-.popup-content img {
-    width: 100%;
-    height: auto;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-}
-
 
 /* SEction E */
 
@@ -285,4 +251,128 @@ body {
 /*BIO CV*/
 .cv{
     padding-top: 40px;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+.close-menu-btn {
+    display: none;
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+.section-b-mobile{
+    display: none;
+}
+
+
+/* Para dispositivos móviles */
+/* @media (max-width: 768px) { */
+@media (max-width: 1025px) {
+
+
+    .section-a {
+        position: fixed;
+        top: 0;
+        left: -200vw; 
+        width: 80%;
+        height: 100vh;
+        z-index: 9999;
+        transition: all 1.5s ease;
+    }
+    .section-a.show {
+       left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        top: 25px;
+        left: 10px;
+        font-size: 2rem;
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 100;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+    #section-a.active {
+        transform: translateX(0);
+    }
+    /* Estilo para el menú cuando está activo */
+    #menu.active {
+        transform: translateX(0);
+    }
+    
+    .close-menu-btn {
+        display: block;
+        top: 20px;
+        left: 17px;
+        font-size: 4rem;
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 100;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    /* Panel C (arriba): Ocupa 3/5 partes */
+    .section-c {
+        max-height: 65;
+        max-width: 100%;
+        overflow-y: hidden;
+    }
+
+    /* Panel B (abajo): Ocupa 2/5 partes */
+    .section-b{
+        display: none;
+    }
+    .section-b-mobile {
+        height: 35%;
+        width: 100%;
+        overflow-x: scroll;
+        display: flex;        
+        padding: 20px;
+        background-color: whitesmoke;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .text-info {
+        position: static; 
+        margin-top: 10px; 
+        text-align: center; 
+    }
+
+    .section-c img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .section-c {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-c .details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+ 
+    .section-a h1 {
+        font-size: 2rem;
+    }
+    .section-a nav ul {
+        font-size: 2.8rem;
+    }
 }
