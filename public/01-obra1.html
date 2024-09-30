@@ -9,11 +9,19 @@
     <!-- <link href="https://fonts.cdnfonts.com/css/satoshi" rel="preload" as="font" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="preload" as="font" crossorigin>               -->
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">              
+    <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">    
                 
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+
 </head>
 <body>
     <div class="fullscreen" id="loading-screen"></div>
+
 
     <div class="container">
         <!-- Sección A -->
@@ -28,18 +36,27 @@
             </nav>
         </div>
 
-        <!-- Sección B -->
+
+
+        <!-- Sección E -->
         <div class="section-e">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quibusdam ipsam itaque eveniet accusantium optio quis ab delectus. Tenetur laboriosam odit laudantium quisquam expedita sint, dolore iure! Obcaecati, veritatis repellat!
-            </p>
-            
+            <div class="grid">
+                <a href="./images/obra1.jpg" data-fancybox="gallery-a" data-caption="Obra 1 - Óleo sobre lienzo" >
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                </a>
+                <a href="./images/obra2.jpg" data-fancybox="gallery-a" data-caption="Obra 2 - Acrílico sobre papel" >
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+                </a>
+                
+              </div>
         </div>
-        
-        <div class="section-c"></div>
+    </div>
+
+
+    <script src="./preloading.js"></script>
+    <script src="./popup-gallery.js"></script>
 
 
 
-        <script src="./preloading.js"></script>
 </body>
 </html>

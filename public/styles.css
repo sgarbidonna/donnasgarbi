@@ -20,7 +20,10 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
-
+.titulo-pagina{
+    text-decoration: none;
+    color: black;
+}
 .fullscreen {
     position: fixed;
     top: 0;
@@ -238,4 +241,34 @@ body {
     font-family: 'Satoshi', sans-serif;
     font-weight: 600;
     font-size: 0.80rem;
+}
+.inline-estudios a{
+    color: red;
+}
+
+.fancybox__slide {
+    padding: 64px 100px;
+    background: whitesmoke;
+}
+.fancybox__toolbar {
+    display: none !important;
+}
+
+.fancybox__container {
+    
+    --carousel-button-svg-height: 19px;
+}
+.fancybox__caption{
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 0.9rem;
+    text-align: justify;
+    text-justify: inter-word;
+    color: black !important;
+}
+.fancybox__nav .carousel__button.is-prev,
+.fancybox__nav .carousel__button.is-next  {
+    color: black;
+}
+.fancybox__container.is-animated[aria-hidden=false] .fancybox__thumbs {
+    display: none;
 }

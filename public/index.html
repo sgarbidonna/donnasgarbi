@@ -11,16 +11,22 @@
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">    
                 
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 
 </head>
 <body>
     <div class="fullscreen" id="loading-screen"></div>
 
 
-    <div class="container">
+    <div class="container" id="container">
         <!-- Sección A -->
         <div class="section-a">
-            <h1>DONNA SGARBI</h1>
+            <a href="./index.html" class="titulo-pagina"><h1>DONNA SGARBI</h1></a>
             <nav>
                 <ul>
                     <li><a href="#">obras</a></li>
@@ -32,22 +38,17 @@
 
         <!-- Sección B -->
         <div class="section-b">
-            <div class="grid">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-                <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo">
-                <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel">
-            </div>
+
+            <!-- <div class="grid">
+                <a href="./01-obra1.html">
+                  <img src="./images/obra1.jpg" alt="Obra 1" class="grid-item" data-title="Obra 1" data-year="2022" data-technique="Óleo sobre lienzo"/>
+                </a>
+                <a href="01-obra1.html">
+                  <img src="./images/obra2.jpg" alt="Obra 2" class="grid-item" data-title="Obra 2" data-year="2021" data-technique="Acrílico sobre papel"/>
+                </a>
+                
+            </div> -->
+
         </div>
 
         <!-- Sección C -->
@@ -64,15 +65,9 @@
         </div>
     </div>
 
-    <!-- Sección D - Popup Gallery -->
-    <div id="popup-gallery" class="popup">
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <img id="popup-image" src="" alt="Imagen en galería">
-        </div>
-    </div>
 
     <script src="./images-visualization.js"></script>
     <script src="./preloading.js"></script>
+
 </body>
 </html>
