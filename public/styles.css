@@ -272,7 +272,9 @@ body {
 /* Para dispositivos móviles */
 /* @media (max-width: 768px) { */
 @media (max-width: 1025px) {
-
+    body{
+        overflow-y: hidden;
+    }
     .section-a {
         position: fixed;
         top: 0;
@@ -323,7 +325,6 @@ body {
         display: flex;
         flex-direction: column-reverse;
         overflow-x: hidden;
-        overflow-y: hidden;
     }
 
     /* Panel C (arriba): Ocupa 3/5 partes */
