@@ -1,6 +1,7 @@
 const gridItems = document.querySelectorAll('.grid-item');
 const previewImage = document.getElementById('preview-image');
 const artTitle = document.getElementById('art-title');
+const artSize = document.getElementById('art-size');
 const artYear = document.getElementById('art-year');
 const artTechnique = document.getElementById('art-technique');
 
@@ -8,6 +9,7 @@ const updatePreview = (item) => {
     const newSrc = item.getAttribute('src');
     previewImage.setAttribute('src', newSrc);
     artTitle.textContent = item.getAttribute('data-title');
+    artSize.textContent = item.getAttribute('data-size');
     artYear.textContent = item.getAttribute('data-year');
     artTechnique.textContent = item.getAttribute('data-technique');
     

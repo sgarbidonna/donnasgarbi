@@ -3,7 +3,8 @@
 
 .section-b::-webkit-scrollbar,
 .section-e::-webkit-scrollbar,
-.section-statement::-webkit-scrollbar{
+.section-statement::-webkit-scrollbar,
+.section-obras::-webkit-scrollbar{
     display: none;
   }
 
@@ -176,7 +177,6 @@ body {
 
 
 /* SEction E */
-
 .section-e {
     padding: 100px 20px;
     background-color: whitesmoke;
@@ -320,7 +320,7 @@ body {
 
 #clear{
     position: fixed;
-    top: 1vw;
+    top: 10vw;
     right: 10vw;
     cursor:pointer;
     
@@ -347,6 +347,25 @@ body {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none;
+}
+
+
+/* Sección OBRAS */
+.section-obras {
+    padding: 20px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    overflow-y: scroll;
+}
+
+.section-obras p{
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 0.80rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 
