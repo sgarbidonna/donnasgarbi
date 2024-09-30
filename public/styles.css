@@ -1,7 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
 @import url('https://fonts.cdnfonts.com/css/cabinet-grotesk');
 
-.section-b::-webkit-scrollbar {
+.section-b::-webkit-scrollbar,
+.section-e::-webkit-scrollbar{
     display: none;
   }
 
@@ -203,22 +204,11 @@ body {
 
 
 /* SEction E */
-.inline-estudios{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    height: 50px;
-}
-.section-e h4{
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 600;
-    font-size: 0.80rem;
-}
 
 .section-e {
     padding: 100px 20px;
     background-color: whitesmoke;
-    
+    overflow-y: scroll;
 }
 
 .section-e h2{
@@ -237,4 +227,15 @@ body {
     font-size: 0.80rem;
     text-align: justify;
     text-justify: inter-word;
+}
+.inline-estudios{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 50px;
+}
+.section-e h4{
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 600;
+    font-size: 0.80rem;
 }
