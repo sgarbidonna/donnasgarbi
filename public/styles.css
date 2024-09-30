@@ -282,7 +282,7 @@ body {
     display: none;
 }
 .carnet {
-    width: 24vw;
+    width:18vw;
     height: auto;
     position: absolute;
     right: 50px;
@@ -349,25 +349,40 @@ body {
     user-select: none;
 }
 
-
 /* Sección OBRAS */
 .section-obras {
     padding: 20px;
     background-color: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     padding-top: 100px;
     overflow-y: scroll;
 }
 
 .section-obras p{
     font-family: 'Cabinet Grotesk', sans-serif;
-    font-size: 0.80rem;
+    font-size: 0.90rem;
     text-align: justify;
     text-justify: inter-word;
 }
 
+.section-obras a{
+    text-align: end;
+    color: black;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    text-decoration: none;
+}
+
+.inline-obras{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.obras-3{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-top: 20px;
+}
 
 @media (max-width: 1025px) {
     body{

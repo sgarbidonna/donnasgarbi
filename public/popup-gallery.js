@@ -9,15 +9,12 @@ Fancybox.bind('[data-fancybox="gallery-a"]', {
 
   mobile: {
       preventCaptionOverlap: false,
-      toolbar: true,
+      toolbar: false,
       buttons: ["zoom", "slideShow", "close"]
   },
   buttons: [],
 
-// Desactiva la galería de miniaturas
 thumbs: {
-  autoStart: false, // Evita que se muestren las miniaturas
+  autoStart: false, 
 },
 });
-
-console.log('hola');
