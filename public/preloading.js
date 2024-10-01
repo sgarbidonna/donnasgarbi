@@ -1,6 +1,6 @@
 const loadingScreen2 = document.getElementById('loading-screen');
 const container = document.getElementById('container');
-    
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const gridItems = document.querySelectorAll('.grid-item');
@@ -9,7 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let imagesLoaded = 0;
     const totalImages = gridItems.length;
 
+    if (gridItems.length== 0){
+        setTimeout(() => {
+            loadingScreen2.style.opacity = 0; // Oculta la pantalla blanca
+            setTimeout(() => {
+                loadingScreen2.style.display = 'none'; // Remueve la pantalla del DOM
+                
+            }, 300); // Espera el tiempo de la transición de opacidad
+        }, 300);
+    }
     
+
     const checkAllImagesLoaded = () => {
         if (imagesLoaded === totalImages) {
             loadingScreen.style.display = 'none'; 
@@ -45,4 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
             checkAllImagesLoaded();
         };
     });
+
+    console.log(gridItems.length== 0)
 });
