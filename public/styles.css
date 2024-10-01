@@ -126,7 +126,8 @@ body {
 }
 
 .grid-item:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
+    transform: scale(1.01);
 }
 
 .section-b p{
@@ -150,11 +151,14 @@ body {
 }
 
 .section-c img {
-    max-width: 80%;
-    height: auto;
+    /* max-width: 80%;
+    height: auto; */
+    width: 80%;
+    max-height: 87%;
     margin-bottom: 10px;
-   
+    object-fit: cover;
 }
+
 .text-info{
     position: fixed;
     height: 100px;
@@ -377,7 +381,7 @@ body {
     align-items: center;
 }
 
-.obras-3{
+.obras-flex{
     display: flex;
     gap: 20px;
     align-items: center;

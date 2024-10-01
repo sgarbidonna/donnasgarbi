@@ -26,6 +26,7 @@ const updatePreview = (item) => {
 const resetPreview = () => {
     previewImage.setAttribute('src', '');
     artTitle.textContent = '';
+    artSize.textContent = '';    
     artYear.textContent = '';
     artTechnique.textContent = '';
 };
