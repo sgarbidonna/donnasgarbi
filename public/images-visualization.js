@@ -21,6 +21,7 @@ const updatePreview = (item) => {
             previewImage.setAttribute('onclick', `window.location.href='${parentLink}'`);
         }
     }
+
 };
 
 const resetPreview = () => {
@@ -30,18 +31,18 @@ const resetPreview = () => {
     artYear.textContent = '';
     artTechnique.textContent = '';
 };
+
 // Función que agrega un enlace al previewImage basado en el artTitle
 const setPreviewLinkByTitle = () => {
     let hrefLink = ''; 
 
     switch (artTitle.textContent) {
-        case 'Obra 1':
-            hrefLink = './01-obra1.html'; 
+        case 'Sin título':
+            hrefLink = './01-rojas.html'; 
             break;
-        case 'Obra 2':
-            hrefLink = './02-obra2.html'; 
+        case 'Juntas':
+            hrefLink = './02-juntas.html'; 
             break;
-        // Añadir más casos según sea necesario
         default:
             hrefLink = ''; 
     }
@@ -81,24 +82,3 @@ document.addEventListener('touchstart', (event) => {
     }
 });
 
-
-
-
-
-// const popup = document.getElementById('popup-gallery');
-// const popupImage = document.getElementById('popup-image');
-// const closePopup = document.querySelector('.close');
-
-
-// // Abrir el popup cuando se hace clic en una imagen
-// gridItems.forEach(item => {
-//     item.addEventListener('click', () => {
-//         popupImage.src = item.src;
-//         popup.style.display = 'flex';
-//     });
-// });
-
-// // Cerrar el popup cuando se hace clic en la 'X'
-// closePopup.addEventListener('click', () => {
-//     popup.style.display = 'none';
-// });

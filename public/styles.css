@@ -34,7 +34,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: whitesmoke; 
-    z-index: 9999; 
+    z-index: 999; 
     opacity: 1; 
     transition: opacity 2s ease; 
 }
@@ -154,7 +154,7 @@ body {
     /* max-width: 80%;
     height: auto; */
     width: 80%;
-    max-height: 87%;
+    max-height: 73vh;
     margin-bottom: 10px;
     object-fit: cover;
 }
@@ -383,10 +383,41 @@ body {
 
 .obras-flex{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     padding-top: 20px;
+    justify-content: center;
 }
+.obras-flex .grid-item{
+    
+    max-width: 40vh;
+    object-fit: cover;
+}
+#preview-image {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.fullscreen2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Cambia el color de fondo según tu diseño */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+/* body.loading {
+    /* pointer-events: none; 
+    overflow: hidden;
+} */
+
 
 @media (max-width: 1025px) {
     body{
@@ -444,7 +475,7 @@ body {
     }
 
     .section-c {
-        max-height: 65;
+        /* max-height: 65; */
         max-width: 100%;
         overflow-y: hidden;
     }
@@ -466,11 +497,6 @@ body {
         position: static; 
         margin-top: 10px; 
         text-align: center; 
-    }
-
-    .section-c img {
-        max-width: 80%;
-        height: auto;
     }
 
     .section-c {

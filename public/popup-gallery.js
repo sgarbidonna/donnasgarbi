@@ -1,5 +1,5 @@
 
-Fancybox.bind('[data-fancybox="gallery-a"]', {
+Fancybox.bind('[data-fancybox="gallery"]', {
   // Opciones personalizadas
   infinite: true,
   transitionEffect: "slide",
