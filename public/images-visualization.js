@@ -9,7 +9,7 @@ const updatePreview = (item) => {
     const newSrc = item.getAttribute('src');
     previewImage.setAttribute('src', newSrc);
     artTitle.textContent = item.getAttribute('data-title');
-    artSize.textContent = item.getAttribute('data-size');
+    artSize.textContent =  " - " + item.getAttribute('data-size');
     artYear.textContent = item.getAttribute('data-year');
     artTechnique.textContent = item.getAttribute('data-technique');
     

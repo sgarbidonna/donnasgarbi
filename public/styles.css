@@ -106,9 +106,8 @@ body {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 100px;
-    padding-top: 300px;
+    align-items: flex-end;
+    /* padding-top: 100px; */
     overflow-y: scroll;
 }
 
@@ -184,7 +183,6 @@ body {
 /* SEction E */
 .section-e {
     padding: 100px 20px;
-    padding: 300px 20px;
     background-color: whitesmoke;
     overflow-y: scroll;
     display: flex;
@@ -344,7 +342,6 @@ body {
 
 .section-statement {
     padding: 100px 20px;
-    padding: 300px 20px;
     background-color: whitesmoke;
     overflow-y: scroll;
     display: flex;
@@ -421,7 +418,34 @@ body {
     opacity: 1;
     transition: opacity 0.5s ease-in-out; 
 }
+.obras-flex-cuadradas{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: center;
+}
 
+.img-vertical,.img-horizontal{
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    padding-top: 20px;
+    
+}
+
+.img-vertical img{
+    height: 70vh;
+    width: auto;
+    object-fit: contain;
+}
+
+.img-horizontal{
+    
+    width: 40vw;
+    height: auto;
+}
 .fullscreen2 {
     position: fixed;
     top: 0;
@@ -435,6 +459,45 @@ body {
     align-items: center;
     font-size: 1.5rem;
     color: #000;
+}
+
+.section-obras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.section-obras h3,
+.section-obras h5,
+.section-obras p {
+    align-self: flex-start; /* Alinea el título a la izquierda */
+    margin-bottom: 20px;
+}
+
+.img-horizontal, 
+.img-vertical, 
+.obras-flex-cuadradas {
+    display: flex;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    margin-bottom: 20px; /* Espaciado entre imágenes */
+}
+
+.img-horizontal img, 
+.img-vertical img, 
+.obras-flex-cuadradas img {
+    max-width: 100%;
+    height: auto;
+}
+
+.obras-flex-cuadradas {
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre imágenes cuadradas */
+}
+
+.obras-flex-cuadradas a {
+    flex: 1 1 calc(33.333% - 10px); /* Asegura que las imágenes cuadradas estén distribuidas de forma equitativa */
+    text-align: center;
 }
 
 /* body.loading {
