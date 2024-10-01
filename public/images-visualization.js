@@ -56,7 +56,6 @@ const setPreviewLinkByTitle = () => {
 gridItems.forEach(item => {
     if (window.innerWidth >= 768) {
         item.addEventListener('mouseover', () => {
-            
             updatePreview(item);    
         });
     } else  {
@@ -67,7 +66,7 @@ gridItems.forEach(item => {
 });
 
 
-document.addEventListener('click', (event) => {
+document.addEventListener('mouseover', (event) => {
     const isGridItem = event.target.closest('.grid-item'); 
     if (!isGridItem) {
         resetPreview();

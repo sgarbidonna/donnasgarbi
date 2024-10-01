@@ -108,6 +108,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding-top: 100px;
+    padding-top: 300px;
     overflow-y: scroll;
 }
 
@@ -183,6 +184,7 @@ body {
 /* SEction E */
 .section-e {
     padding: 100px 20px;
+    padding: 300px 20px;
     background-color: whitesmoke;
     overflow-y: scroll;
     display: flex;
@@ -215,7 +217,7 @@ body {
     display: flex;
     gap: 20px;
     align-items: center;
-    height: 50px;
+    height: 33px;
 }
 .contact, 
 .catalogo{
@@ -342,6 +344,7 @@ body {
 
 .section-statement {
     padding: 100px 20px;
+    padding: 300px 20px;
     background-color: whitesmoke;
     overflow-y: scroll;
     display: flex;
@@ -357,7 +360,7 @@ body {
 .section-obras {
     padding: 20px;
     background-color: whitesmoke;
-    padding-top: 100px;
+    padding-top: 85px;
     overflow-y: scroll;
 }
 
@@ -366,6 +369,9 @@ body {
     font-size: 0.90rem;
     text-align: justify;
     text-justify: inter-word;
+}
+.section-obras .p-identar{
+    text-indent: 50px;
 }
 
 .section-obras a{
@@ -385,13 +391,31 @@ body {
     display: flex;
     gap: 10px;
     align-items: center;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     justify-content: center;
 }
 .obras-flex .grid-item{
-    
     max-width: 40vh;
     object-fit: cover;
+}
+
+.obras-flex video{
+    height: 48vh;
+}
+.videos-youtube-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    
+    padding-top: 20px;
+}
+.videos-youtube-flex iframe{
+    width: 550px;
+    height: auto;
+    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
 }
 #preview-image {
     opacity: 1;
@@ -525,7 +549,7 @@ body {
         display: block;
         gap: 20px;
         align-items: center;
-        height: 50px;
+        height: 33px;
     }
     .carnet{
         width: 35vw;
