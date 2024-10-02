@@ -401,7 +401,8 @@ body {
 .obras-flex video{
     height: 48vh;
 }
-.videos-youtube-flex{
+.videos-youtube-flex,
+.videos-youtube-flex2{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -415,6 +416,11 @@ body {
     height: auto;
     aspect-ratio: 16/9;
     aspect-ratio: 4/3;
+}
+.videos-youtube-flex2 iframe{
+    width: 550px;
+    height: auto;
+    aspect-ratio: 3/4;
 }
 #preview-image {
     opacity: 1;
