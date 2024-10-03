@@ -106,7 +106,7 @@ body {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     /* padding-top: 100px; */
     overflow-y: scroll;
 }
@@ -127,7 +127,8 @@ body {
 
 .grid-item:hover {
     /* transform: scale(1.05); */
-    transform: scale(1.01);
+    transform: scale(1.05);
+    opacity: 0.5;
 }
 
 .section-b p{
@@ -266,9 +267,11 @@ body {
 /*BIO CV*/
 .bio{
     padding-top: 40px;
+    z-index: 2;
 }
 .cv{
     padding-top: 40px;
+    z-index: 2;
 }
 
 .mobile-menu-btn {
@@ -291,6 +294,7 @@ body {
     position: absolute;
     right: 50px;
     top: 50px;
+    z-index: 1;
 }
 
     
@@ -402,7 +406,8 @@ body {
     height: 48vh;
 }
 .videos-youtube-flex,
-.videos-youtube-flex2{
+.videos-youtube-flex2,
+.videos-youtube-flex3{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,6 +426,12 @@ body {
     width: 550px;
     height: auto;
     aspect-ratio: 3/4;
+}
+
+.videos-youtube-flex3 iframe{
+    width: 600px;
+    height: auto;
+    aspect-ratio: 16/9;
 }
 #preview-image {
     opacity: 1;
