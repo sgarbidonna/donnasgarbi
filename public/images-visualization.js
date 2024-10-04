@@ -6,6 +6,8 @@ const artYear = document.getElementById('art-year');
 const artTechnique = document.getElementById('art-technique');
 
 const updatePreview = (item) => {
+    previewImage.style.opacity = '1'; // Desvanecer la imagen actual
+   
     const newSrc = item.getAttribute('src');
     previewImage.setAttribute('src', newSrc);
     artTitle.textContent = item.getAttribute('data-title');
@@ -25,6 +27,7 @@ const updatePreview = (item) => {
 };
 
 const resetPreview = () => {
+    previewImage.style.opacity = '0'; 
     previewImage.setAttribute('src', '');
     artTitle.textContent = '';
     artSize.textContent = '';    

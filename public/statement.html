@@ -10,7 +10,12 @@
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="preload" as="font" crossorigin>               -->
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">              
-                
+    <script>
+        if (window.location.pathname.endsWith('statement.html')) {
+            window.history.replaceState(null, null, window.location.pathname.replace('statement.html', ''));
+        }
+            
+     </script> 
 </head>
 <body>
     <div class="fullscreen" id="loading-screen"></div>
@@ -63,6 +68,7 @@
 
         <script src="./preloading.js"></script>
         <script src="./canvas.js"></script>
-        <!-- <script src="./hidehtml.js"></script> -->
+        <script src="./hidehtml.js"></script>
+
 </body>
 </html>

@@ -15,7 +15,13 @@
     <!-- Fancybox JS -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-
+    <script>
+        
+        if (window.location.pathname.endsWith('index.html')) {
+            window.history.replaceState(null, null, window.location.pathname.replace('index.html', ''));
+        }
+            
+    </script>
 </head>
 <body>
     <div class="fullscreen" id="loading-screen"></div>
@@ -147,7 +153,6 @@
     <script src="./menu-mobile.js"></script>
     <!-- <script src="./hidehtml.js"></script> -->
    <script src="./scroll-section.js"></script>
-   <script src="./scroll-section-with-cursor.js"></script>
 
 </body>
 </html>

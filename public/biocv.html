@@ -10,6 +10,12 @@
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="preload" as="font" crossorigin>               -->
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">         
+    <script>
+        if (window.location.pathname.endsWith('biocv.html')) {
+            window.history.replaceState(null, null, window.location.pathname.replace('biocv.html', ''));
+        }
+            
+    </script>
 </head>
 <body>
     <div class="fullscreen" id="loading-screen"></div>
@@ -96,7 +102,6 @@
         <script src="./preloading.js"></script>
         <!-- <script src="./hidehtml.js"></script> -->
         <script src="./scroll-section.js"></script>
-        
-<script src="./scroll-section-with-cursor.js"></script>
+
 </body>
 </html>

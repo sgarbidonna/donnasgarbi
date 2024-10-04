@@ -23,6 +23,14 @@ if (sectionToScroll) {
         sectionToScroll.scrollTop += e.deltaY; 
     });
 } 
-// else {
-//     console.log('Ninguna de las secciones existe.');
-// }
+
+document.addEventListener('keydown', (event) => {
+    switch (event.key) {
+        case 'ArrowUp':  
+            sectionToScroll.scrollBy(0, -50);  
+            break;
+        case 'ArrowDown':  
+            sectionToScroll.scrollBy(0, 50);  
+            break;
+    }
+});
