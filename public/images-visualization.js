@@ -40,11 +40,53 @@ const setPreviewLinkByTitle = () => {
     let hrefLink = ''; 
 
     switch (artTitle.textContent) {
-        case 'Sin título':
-            hrefLink = './01-rojas.html'; 
+        case 'Sin título - SERIE PINTURAS ROJAS':
+            hrefLink = './rojas.html'; 
+            break;
+        case 'Vital y Dulce':
+            hrefLink = './vital-dulce-suerte.html'; 
+            break;
+        case 'Suerte':
+            hrefLink = './vital-dulce-suerte.html'; 
             break;
         case 'Juntas':
-            hrefLink = './02-juntas.html'; 
+            hrefLink = './juntas.html'; 
+            break;
+        case 'Síncopa':
+            hrefLink = './ritmo.html'; 
+            break;
+        case 'Cantante':
+            hrefLink = './ritmo.html'; 
+            break;
+        case 'Bossanova':
+            hrefLink = './ritmo.html'; 
+            break;
+        case 'Caminamos':
+            hrefLink = './carbonillas.html'; 
+            break;
+        case 'Desafía':
+            hrefLink = './carbonillas.html'; 
+            break;
+        case 'Acento':
+            hrefLink = './acento.html'; 
+            break;
+        case 'Bis':
+            hrefLink = './bis.html'; 
+            break;
+        case 'Sacudir la oscuridad trajo polvo de estrellas':
+            hrefLink = './estrellas.html'; 
+            break;
+        case 'Tren':
+            hrefLink = './tren.html'; 
+            break;
+        case 'Sin título':
+            hrefLink = './pinturas-digitales.html'; 
+            break;
+        case 'Sombra':
+            hrefLink = './instalaciones.html'; 
+            break;
+        case 'Sostén el vacío':
+            hrefLink = './instalaciones.html'; 
             break;
         default:
             hrefLink = ''; 

@@ -333,7 +333,13 @@ body {
     top: 10vw;
     right: 10vw;
     cursor:pointer;
-    
+    font-size: 0.8rem;
+}
+#save{
+    position: fixed;
+    top: 15vw;
+    right: 3vw;
+    cursor:pointer;
     font-size: 0.8rem;
 }
 
