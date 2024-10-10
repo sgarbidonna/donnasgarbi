@@ -118,14 +118,16 @@ body {
     gap: 10px;
 }
 
-.grid-item {
+.grid-item,
+.grid-item-mobile {
     width: 100%;
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.grid-item:hover {
+.grid-item:hover,
+.grid-item-mobile:hover {
     /* transform: scale(1.05); */
     transform: scale(1.05);
     opacity: 0.5;
@@ -188,15 +190,16 @@ body {
 .section-c-index .details-mobile{
     display: none;
 }
+.text-info-mobile{
+    display: none;
+}
 
 .text-info{
     position: fixed;
     height: 100px;
     bottom: 0;
 }
-.text-info-mobile{
-    display: none;
-}
+
 .details h2,
 .details p {
     margin: 5px 0;
@@ -312,12 +315,6 @@ body {
     user-select: none;
 }
 
-.contact{
-    
-    /* -webkit-user-select:text;
-    -ms-user-select: text; 
-    user-select: text */
-}
 .mobile-menu-btn {
     display: none;
 }

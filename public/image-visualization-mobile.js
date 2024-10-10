@@ -1,44 +1,46 @@
-const gridItems = document.querySelectorAll('.grid-item');
 const gridItems_mobile = document.querySelectorAll('.grid-item-mobile');
-const previewImage = document.getElementById('preview-image');
-const artTitle = document.getElementById('art-title');
-const artSize = document.getElementById('art-size');
-const artYear = document.getElementById('art-year');
-const artTechnique = document.getElementById('art-technique');
+const previewImage_mobile = document.getElementById('preview-image');
+const artTitle_mobile = document.getElementById('art-title');
+const artSize_mobile = document.getElementById('art-size');
+const artYear_mobile = document.getElementById('art-year');
+const artTechnique_mobile = document.getElementById('art-technique');
 
 const updatePreview = (item) => {
-    previewImage.style.opacity = '1';    
-    const newSrc = item.getAttribute('src');
-    previewImage.setAttribute('src', newSrc);
-    artTitle.textContent = item.getAttribute('data-title');
-    artSize.textContent =  " - " + item.getAttribute('data-size');
-    artYear.textContent = item.getAttribute('data-year');
-    artTechnique.textContent = item.getAttribute('data-technique');
+    previewImage_mobile.style.opacity = '1'; // Desvanecer la imagen actual
+   
+    const newSrc_mobile = item.getAttribute('src');
+    previewImage_mobile.setAttribute('src', newSrc);
+    artTitle_mobile.textContent = item.getAttribute('data-title');
+    artSize_mobile.textContent =  " - " + item.getAttribute('data-size');
+    artYear_mobile.textContent = item.getAttribute('data-year');
+    artTechnique_mobile.textContent = item.getAttribute('data-technique');
     
     if (window.innerWidth < 1024) {
+        console.log('window menor q 1024');
         setPreviewLinkByTitle();
     } else{
-        const parentLink = item.closest('a'); 
+        const parentLink_mobile = item.closest('a'); 
         if (parentLink) {
-            previewImage.setAttribute('onclick', `window.location.href='${parentLink}'`);
+            previewImage_mobile.setAttribute('onclick', `window.location.href='${parentLink}'`);
         }
     }
 
 };
 
 const resetPreview = () => {
-    previewImage.style.opacity = '0'; 
-    previewImage.setAttribute('src', '');
-    artTitle.textContent = '';
-    artSize.textContent = '';    
-    artYear.textContent = '';
-    artTechnique.textContent = '';
+    previewImage_mobile.style.opacity = '0'; 
+    previewImage_mobile.setAttribute('src', '');
+    artTitle_mobile.textContent = '';
+    artSize_mobile.textContent = '';    
+    artYear_mobile.textContent = '';
+    artTechnique_mobile.textContent = '';
 };
 
-// Función que agrega un enlace al previewImage basado en el artTitle
+
 const setPreviewLinkByTitle = () => {
     let hrefLink = ''; 
-    switch (artTitle.textContent) {
+
+    switch (artTitle_mobile.textContent) {
         case 'Sin título - SERIE PINTURAS ROJAS':
             hrefLink = './rojas.html'; 
             break;
@@ -91,14 +93,14 @@ const setPreviewLinkByTitle = () => {
             hrefLink = ''; 
     }
     if (hrefLink) {
-        previewImage.setAttribute('onclick', `window.location.href='${hrefLink}'`);
-        console.log(previewImage);
+        previewImage_mobile.setAttribute('onclick', `window.location.href='${hrefLink}'`);
+        
     } else {
-        previewImage.removeAttribute('onclick'); 
+        previewImage_mobile.removeAttribute('onclick'); 
     }
 };
 
-gridItems.forEach(item => {
+gridItems_mobile.forEach(item => {
     if (window.innerWidth >= 768) {
         item.addEventListener('mouseover', () => {
             updatePreview(item);    
@@ -106,34 +108,25 @@ gridItems.forEach(item => {
     } else  {
         item.addEventListener('touchstart', () => {
             updatePreview(item);
-        });
-    } 
-});
-gridItems_mobile.forEach(item => {
-    if (window.innerWidth <= 1024) {
-        item.addEventListener('mouseover', () => {
-            updatePreview(item);    
-        });
-    } else  {
-        item.addEventListener('touchstart', () => {
-            updatePreview(item);
+            console.log('item add event lstener touchstart');
         });
     } 
 });
 
 
 document.addEventListener('mouseover', (event) => {
-    const isGridItem = event.target.closest('.grid-item'); 
-    if (!isGridItem) {
+    const isGridItem_mobile = event.target.closest('.grid-item'); 
+    if (!isGridItem_mobile) {
         resetPreview();
     }
 });
 
 document.addEventListener('touchstart', (event) => {
-    const isGridItem = event.target.closest('.grid-item');
-    const isPreviewImage = event.target === previewImage; 
-    if (!isGridItem && !isPreviewImage) { 
+    const isGridItem_mobile = event.target.closest('.grid-item');
+    const isPreviewImage_mobile = event.target === previewImage_mobile; 
+    if (!isGridItem_mobile && !isPreviewImage_mobile) { 
         resetPreview();
     }
 });
 
+console.log('entro a imagevisualizaion mibule');
