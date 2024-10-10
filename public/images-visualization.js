@@ -7,6 +7,7 @@ const artYear = document.getElementById('art-year');
 const artTechnique = document.getElementById('art-technique');
 
 const updatePreview = (item) => {
+    console.log('estou en update');
     previewImage.style.opacity = '1';    
     const newSrc = item.getAttribute('src');
     previewImage.setAttribute('src', newSrc);
