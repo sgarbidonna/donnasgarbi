@@ -1,4 +1,5 @@
 const sectionC = document.querySelector('.section-c');
+const isMobileOrTabletScroll = window.matchMedia("(max-width: 768px)").matches;
 
 let lastTouchY = 0; 
 
@@ -17,10 +18,14 @@ const getSectionToScroll = () => {
 
 const sectionToScroll = getSectionToScroll();
 if (sectionToScroll) {
-    sectionC.addEventListener('wheel', (e) => {
-        e.preventDefault(); 
-        sectionToScroll.scrollTop += e.deltaY; 
-    });
+    if (!isMobileOrTabletScroll) {
+        sectionC.addEventListener('wheel', (e) => {
+            e.preventDefault(); 
+            sectionToScroll.scrollTop += e.deltaY; 
+        });
+    }
+
+    
 } 
 
 document.addEventListener('keydown', (event) => {
