@@ -18,7 +18,6 @@ const getSectionToScroll = () => {
 const sectionToScroll = getSectionToScroll();
 if (sectionToScroll) {
     sectionC.addEventListener('wheel', (e) => {
-        console.log('hoal');
         e.preventDefault(); 
         sectionToScroll.scrollTop += e.deltaY; 
     });
