@@ -162,6 +162,30 @@ body {
     transition: opacity 0.5s ease;  
 }
 
+/* Sección C */
+.section-c-index {
+    background-color: whitesmoke;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex-direction: column;
+    text-align: left;
+    max-height: 100vh;
+    
+}
+
+.section-c-index img {
+    /* max-width: 80%;
+    height: auto; */
+    width: 80%;
+    max-height: 73vh;
+    margin-bottom: 10px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;  
+}
+
 .text-info{
     position: fixed;
     height: 100px;
@@ -270,12 +294,24 @@ body {
 .bio{
     padding-top: 40px;
     z-index: 2;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
 }
 .cv{
     padding-top: 40px;
     z-index: 2;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
 }
 
+.contact{
+    
+    /* -webkit-user-select:text;
+    -ms-user-select: text; 
+    user-select: text */
+}
 .mobile-menu-btn {
     display: none;
 }
@@ -473,6 +509,7 @@ body {
     width: 40vw;
     height: auto;
 }
+
 .fullscreen2 {
     position: fixed;
     top: 0;
@@ -537,6 +574,11 @@ body {
     body{
         overflow-y: hidden;
     }
+    .fullscreen,
+    .fullscreen2,
+    .section-c{
+        display: none;
+    }
     .section-a {
         position: fixed;
         top: 0;
@@ -593,6 +635,11 @@ body {
         max-width: 100%;
         overflow-y: hidden;
     }
+    .section-c-index {
+        /* max-height: 65; */
+        max-width: 100%;
+        overflow-y: hidden;
+    }
 
     .section-b{
         display: none;
@@ -621,6 +668,20 @@ body {
     }
 
     .section-c .details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+ 
+    .section-c-index {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-c-index .details{
         display: flex;
         flex-direction: column;
         justify-content: center;

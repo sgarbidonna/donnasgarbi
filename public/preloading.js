@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (gridItems.length== 0){
         setTimeout(() => {
-            loadingScreen2.style.opacity = 0; // Oculta la pantalla blanca
+            loadingScreen2.style.opacity = 0; 
             setTimeout(() => {
                 loadingScreen2.style.display = 'none'; // Remueve la pantalla del DOM
-                
             }, 300); // Espera el tiempo de la transición de opacidad
         }, 300);
     }
@@ -24,9 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (imagesLoaded === totalImages) {
             loadingScreen.style.display = 'none'; 
             document.body.classList.remove('loading'); 
-
             setTimeout(() => {
-                loadingScreen2.style.opacity = 0; // Oculta la pantalla blanca
+                loadingScreen2.style.opacity = 0; 
+                
+                console.log("hola");// Oculta la pantalla blanca
                 setTimeout(() => {
                     loadingScreen2.style.display = 'none'; // Remueve la pantalla del DOM
                     
@@ -38,23 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Desactiva la interacción con la página mientras se cargan las imágenes
     document.body.classList.add('loading');
     
-    // Recorre todas las imágenes de grid-item
+    
     gridItems.forEach(item => {
         const img = new Image();
         img.src = item.getAttribute('src');
-
-        // Evento cuando la imagen se ha cargado
         img.onload = () => {
-            imagesLoaded++; // Incrementa el contador de imágenes cargadas
-            checkAllImagesLoaded(); // Verifica si ya están todas cargadas
+            imagesLoaded++; 
+            checkAllImagesLoaded(); 
         };
-
-        // Manejo de error por si alguna imagen no se carga
         img.onerror = () => {
-            imagesLoaded++; // Incrementa igualmente en caso de error
+            imagesLoaded++; 
             checkAllImagesLoaded();
         };
     });
 
-    console.log(gridItems.length== 0)
 });
