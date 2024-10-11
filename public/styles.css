@@ -688,17 +688,6 @@ body {
         flex-direction: column;
     }
 
-    /* .section-c-index .details-mobile{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        height: 60vh;
-        width: 100vw;
-
-    } */
     .text-info {
         display: none;
     }
@@ -725,6 +714,10 @@ body {
         align-items: center;
         height: 33px;
     }
+    .section-canvas{
+        display: none;
+    }
+
     .carnet{
         width: 35vw;
         height: auto;
