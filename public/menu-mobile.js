@@ -1,12 +1,15 @@
-
+console.log('entro a menu');
 function toggleMenu() {
     const sectionA = document.getElementById('section-a');
+
     sectionA.classList.toggle('show');
+    
 }
 
 function closeMenu() {
     const sectionA = document.getElementById('section-a');
     sectionA.classList.toggle('show');
+
 }
 
 
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Cerrar menú
             closeMenuBtn.addEventListener('click', function () {
                 menu.classList.remove('active');
-                console.log('cerrar');
+
             });
         }
     }
