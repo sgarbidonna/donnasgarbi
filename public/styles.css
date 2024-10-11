@@ -572,9 +572,9 @@ body {
     body{
         overflow-y: hidden;
     }
-/*     
+    
     .fullscreen,
-    .fullscreen2, */
+    .fullscreen2, 
     .section-c{
         display: none;
     }
