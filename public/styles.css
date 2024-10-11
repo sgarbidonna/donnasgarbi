@@ -742,7 +742,7 @@ body {
         display: grid;
         justify-items: end;
         width: 99vw;
-        padding: 20px;
+        /* padding: 20px; */
         gap: 5px;
     }
 }
