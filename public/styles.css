@@ -709,8 +709,7 @@ body {
     }
 
     .inline-estudios{
-        display: -webkit-box;
-        width: 80vw;
+        display: inline-table;
     }
     .section-canvas{
         display: none;
