@@ -31,7 +31,7 @@ const updatePreview = (item) => {
 };
 
 const resetPreview = () => {
-    previewImage.style.opacity = '0'; 
+    // previewImage.style.opacity = '0'; 
     previewImage.setAttribute('src', '');
     artTitle.textContent = '';
     artSize.textContent = '';    
