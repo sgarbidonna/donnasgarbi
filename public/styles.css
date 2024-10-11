@@ -718,6 +718,18 @@ body {
         display: none;
     }
 
+    .section-statement {
+        padding: 20px;
+        background-color: whitesmoke;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none;
+    }
     .carnet{
         width: 35vw;
         height: auto;
