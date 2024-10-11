@@ -740,9 +740,9 @@ body {
         /* display: contents;
         margin-bottom: 20px; */
         display: grid;
-        margin-bottom: 20px;
         justify-items: end;
-        width: 77vw;
+        width: 99vw;
         padding: 20px;
+        gap: 5px;
     }
 }
