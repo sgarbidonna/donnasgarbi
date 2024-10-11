@@ -719,7 +719,7 @@ body {
     }
 
     .section-statement {
-        padding: 20px;
+        padding: 50px 20px 20px 20px;
         background-color: whitesmoke;
         overflow-y: scroll;
         display: flex;
