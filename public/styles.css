@@ -743,6 +743,6 @@ body {
         justify-items: end;
         width: 80vw;
         gap: 5px;
-        height: -webkit-fill-available;
+        height: max-content;
     }
 }
