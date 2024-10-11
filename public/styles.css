@@ -735,7 +735,12 @@ body {
         top: 20px;
     }
     .contact{
-        display: contents;
+        /* display: contents;
+        margin-bottom: 20px; */
+        display: grid;
         margin-bottom: 20px;
+        justify-items: end;
+        width: 100vw;
+        padding: 20px;
     }
 }
