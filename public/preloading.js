@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 loadingScreen2.style.opacity = 0; 
                 
-                console.log("hola");// Oculta la pantalla blanca
+                // Oculta la pantalla blanca
                 setTimeout(() => {
                     loadingScreen2.style.display = 'none'; // Remueve la pantalla del DOM
                     

@@ -7,10 +7,12 @@ const artYear = document.getElementById('art-year');
 const artTechnique = document.getElementById('art-technique');
 
 const updatePreview = (item) => {
-    console.log('estou en update');
     previewImage.style.opacity = '1';    
     const newSrc = item.getAttribute('src');
+    // console.log(newSrc);
     previewImage.setAttribute('src', newSrc);
+    // previewImage.style.backgroundImage = newSrc;
+    // console.log(previewImage);
     artTitle.textContent = item.getAttribute('data-title');
     artSize.textContent =  " - " + item.getAttribute('data-size');
     artYear.textContent = item.getAttribute('data-year');
@@ -18,6 +20,7 @@ const updatePreview = (item) => {
     
     if (window.innerWidth < 1024) {
         setPreviewLinkByTitle();
+        
     } else{
         const parentLink = item.closest('a'); 
         if (parentLink) {
@@ -43,10 +46,10 @@ const setPreviewLinkByTitle = () => {
         case 'Sin título - SERIE PINTURAS ROJAS':
             hrefLink = './rojas.html'; 
             break;
-        case 'Vital y Dulce':
+        case 'Vital Dulce Suerte':
             hrefLink = './vital-dulce-suerte.html'; 
             break;
-        case 'Suerte':
+        case 'Vital Dulce Suerte':
             hrefLink = './vital-dulce-suerte.html'; 
             break;
         case 'Juntas':
@@ -93,31 +96,23 @@ const setPreviewLinkByTitle = () => {
     }
     if (hrefLink) {
         previewImage.setAttribute('onclick', `window.location.href='${hrefLink}'`);
-        console.log(previewImage);
+        
     } else {
         previewImage.removeAttribute('onclick'); 
     }
 };
 
 gridItems.forEach(item => {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1025) {
         item.addEventListener('mouseover', () => {
             updatePreview(item);    
-        });
-    } else  {
-        item.addEventListener('touchstart', () => {
-            updatePreview(item);
         });
     } 
 });
 gridItems_mobile.forEach(item => {
     if (window.innerWidth <= 1024) {
-        item.addEventListener('mouseover', () => {
-            updatePreview(item);    
-        });
-    } else  {
         item.addEventListener('touchstart', () => {
-            updatePreview(item);
+            updatePreview(item);    
         });
     } 
 });
@@ -130,11 +125,11 @@ document.addEventListener('mouseover', (event) => {
     }
 });
 
-document.addEventListener('touchstart', (event) => {
-    const isGridItem = event.target.closest('.grid-item');
-    const isPreviewImage = event.target === previewImage; 
-    if (!isGridItem && !isPreviewImage) { 
-        resetPreview();
-    }
-});
+// document.addEventListener('touchstart', (event) => {
+//     const isGridItemMob = event.target.closest('.grid-item-mobile');
+//     const isPreviewImage = event.target === previewImage; 
+//     if (!isGridItemMob && !isPreviewImage) { 
+//         resetPreview();
+//     }
+// });
 
