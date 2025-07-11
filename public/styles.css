@@ -691,8 +691,18 @@ body {
     }
 
     .text-info {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    
+    #art-technique, #art-year{
         display: none;
     }
+/* creo q no existe
 
     .text-info-mobile {
         display: block;
@@ -700,7 +710,7 @@ body {
         margin-top: 10px; 
         text-align: center; 
     }
-
+*/
    
     .section-a h1 {
         font-size: 1.3rem;
