@@ -698,7 +698,7 @@ body {
         align-items: flex-end;
         gap: 10px;
     }
-    
+
     #art-technique, #art-year{
         display: none;
     }
@@ -711,7 +711,25 @@ body {
         text-align: center; 
     }
 */
-   
+.overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        color: black;
+        background: rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        font-weight: 300;
+        text-align: center;
+        z-index: 1;
+        pointer-events: none;
+        font-size: 17px;
+  }
+
+  .grid .active + .overlay-text {
+    opacity: 1;
+  }
+
     .section-a h1 {
         font-size: 1.3rem;
         margin: 1.3rem 0;
