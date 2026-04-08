@@ -41,15 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
     gridItems.forEach(item => {
         const img = new Image();
-        img.src = item.getAttribute('src');
         img.onload = () => {
-            imagesLoaded++; 
-            checkAllImagesLoaded(); 
-        };
-        img.onerror = () => {
-            imagesLoaded++; 
+            imagesLoaded++;
             checkAllImagesLoaded();
         };
+        img.onerror = () => {
+            imagesLoaded++;
+            checkAllImagesLoaded();
+        };
+        img.src = item.getAttribute('src');
+        if (img.complete) {
+            imagesLoaded++;
+            checkAllImagesLoaded();
+        }
     });
 
 });
