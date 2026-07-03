@@ -521,6 +521,7 @@ body {
     align-items: center;
     font-size: 1.5rem;
     color: #000;
+    transition: opacity 0.3s ease;
 }
 
 .section-obras {
@@ -582,7 +583,8 @@ body {
     align-items: flex-end;
     border-top: 1px solid black;
     gap: 0.5rem;
-    padding-top: 15px;  
+    padding-top: 15px; 
+    margin-top: 53vh; 
 }
 
 .filter-btn {
