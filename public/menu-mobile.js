@@ -1,4 +1,4 @@
-console.log('entro a menu');
+// console.log('entro a menu');
 function toggleMenu() {
     const sectionA = document.getElementById('section-a');
 

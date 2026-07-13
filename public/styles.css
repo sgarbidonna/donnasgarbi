@@ -615,7 +615,20 @@ body {
 .filtered-out {
     display: none !important;
 }
+.contenedor-video {
+    width: 100%; /* O el ancho fijo que necesites, ej: 500px */
+    max-width: 800px;
+    aspect-ratio: 16 / 9; /* Mantiene la proporción y evita saltos en el diseño */
+    overflow:visible; /* Recorta lo que sobresalga */
+        min-height: 78%;
+}
 
+.contenedor-video video {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* 'cover' llena el espacio (puede recortar). Si quieres que se vea entero usa 'contain' */
+    display: block; /* Elimina un pequeño espacio en blanco que los navegadores ponen por defecto bajo los videos */
+}
 /* Mobile: ajustar gap del filtro */
 @media (max-width: 768px) {
     .filter-bar {
