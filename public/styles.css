@@ -629,6 +629,13 @@ body {
     object-fit: cover; /* 'cover' llena el espacio (puede recortar). Si quieres que se vea entero usa 'contain' */
     display: block; /* Elimina un pequeño espacio en blanco que los navegadores ponen por defecto bajo los videos */
 }
+
+
+
+.p-identar a{
+    text-underline-position: from-font;
+    text-decoration-line: underline;
+}
 /* Mobile: ajustar gap del filtro */
 @media (max-width: 768px) {
     .filter-bar {
