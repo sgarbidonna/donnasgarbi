@@ -1,15 +1,19 @@
 // filter.js — Selector de categorías para portfolio
 // Soporta múltiples categorías por obra (separadas por espacio en data-category)
-// Con animación fade entre transiciones de filtro
+// Filtros toggle: se activan/desactivan con click, pueden estar varios activos a la vez.
+// Una obra se muestra si coincide con ALGÚN filtro activo (OR).
+// Si no hay filtros activos, la sección queda en blanco (no se muestra ninguna obra).
+// Con animación fade entre transiciones de filtro.
 
 document.addEventListener('DOMContentLoaded', () => {
-    let activeFilter = 'todos';
+    // Set con los filtros actualmente activos. Vacío = sección en blanco.
+    const activeFilters = new Set();
     const FADE_DURATION = 320; // ms
 
     // ---- Categorización de obras ----
     // Cada obra del grid tiene un atributo data-category que puede contener
     // una o varias categorías separadas por espacio.
-    // Ejemplo: data-category="video render" → aparece en ambos filtros.
+    // Ejemplo: data-category="video render" → aparece si está activo video o render.
 
     // --- Desktop (section-b) ---
     const desktopItems = () => document.querySelectorAll('.section-b .grid-item');
@@ -25,9 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return raw ? raw.split(/\s+/) : [];
     }
 
-    function matchesFilter(categories, filter) {
-        if (filter === 'todos') return true;
-        return categories.includes(filter);
+    // OR: la obra se muestra si tiene al menos una categoría activa.
+    // Si no hay ningún filtro activo, NO se muestra ninguna obra (sección en blanco).
+    function matchesAnyFilter(categories) {
+        if (activeFilters.size === 0) return false;
+        return categories.some(c => activeFilters.has(c));
     }
 
     // --- Fade out: opacity 0 → luego display none ---
@@ -53,21 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.opacity = '1';
     }
 
-    // --- Lógica principal de filtrado ---
-    function applyFilter(category) {
-        activeFilter = category;
-
-        // Sincronizar estado de botones en AMBAS barras (desktop + mobile)
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.filter === category);
+    // --- Sincroniza el estado visual de TODOS los botones (desktop + mobile) ---
+    // Los botones con la misma data-filter comparten estado activo/inactivo.
+    function syncButtons() {
+        document.querySelectorAll('.filter-btn, .filter-btn-mobile').forEach(btn => {
+            const f = btn.dataset.filter;
+            if (!f || f === 'todos') return; // "todas" fue eliminado, pero por seguridad
+            btn.classList.toggle('active', activeFilters.has(f));
         });
+    }
+
+    // --- Lógica principal de filtrado ---
+    function applyFilter() {
+        syncButtons();
 
         // --- Desktop (section-b) ---
         desktopItems().forEach(img => {
             const parentLink = getDesktopParent(img);
             if (!parentLink) return;
             const categories = getCategories(parentLink);
-            const shouldShow = matchesFilter(categories, category);
+            const shouldShow = matchesAnyFilter(categories);
 
             if (shouldShow) {
                 fadeIn(parentLink);
@@ -82,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileItems().forEach(img => {
             const categories = getCategories(img);
             const overlayText = getMobileOverlay(img);
-            const shouldShow = matchesFilter(categories, category);
+            const shouldShow = matchesAnyFilter(categories);
 
             if (shouldShow) {
                 fadeIn(img);
@@ -102,10 +113,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Listeners en todos los botones de filtro
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    // --- Toggle de un filtro: lo activa si está inactivo, lo desactiva si está activo ---
+    function toggleFilter(category) {
+        if (activeFilters.has(category)) {
+            activeFilters.delete(category);
+        } else {
+            activeFilters.add(category);
+        }
+        applyFilter();
+    }
+
+    // --- Cerrar el menú móvil después de un click en un filtro mobile ---
+    // (preserva el comportamiento previo del script inline)
+    function closeMobileMenu() {
+        const sectionA = document.getElementById('section-a');
+        if (sectionA) {
+            sectionA.style.transform = 'translateX(-100%)';
+            sectionA.style.pointerEvents = 'none';
+        }
+        const toggleBtn = document.getElementById('toggle-menu');
+        if (toggleBtn) {
+            toggleBtn.style.opacity = '1';
+            toggleBtn.style.pointerEvents = 'auto';
+        }
+    }
+
+    // Listeners en todos los botones de filtro (desktop + mobile)
+    document.querySelectorAll('.filter-btn, .filter-btn-mobile').forEach(btn => {
         btn.addEventListener('click', () => {
-            applyFilter(btn.dataset.filter);
+            const category = btn.dataset.filter;
+            if (!category || category === 'todos') return; // ignorar "todas" si quedara
+            toggleFilter(category);
+
+            // Cerrar el menú móvil después de seleccionar un filtro (sólo mobile)
+            if (btn.classList.contains('filter-btn-mobile')) {
+                closeMobileMenu();
+            }
         });
     });
+
+    // // --- Init: estado inicial = sin filtros = sección en blanco ---
+    // // Oculta todo inmediatamente (sin animación) para evitar un flash de obras
+    // // visibles al cargar la página. Cuando el usuario active un filtro, las
+    // // obras correspondientes se mostrarán con fadeIn.
+    // function initEmptyState() {
+    //     desktopItems().forEach(img => {
+    //         const parentLink = getDesktopParent(img);
+    //         if (!parentLink) return;
+    //         parentLink.style.display = 'none';
+    //         parentLink.style.opacity = '0';
+    //         parentLink.style.transition = `opacity ${FADE_DURATION}ms ease`;
+    //     });
+    //     mobileItems().forEach(img => {
+    //         const overlayText = getMobileOverlay(img);
+    //         img.style.display = 'none';
+    //         img.style.opacity = '0';
+    //         img.style.transition = `opacity ${FADE_DURATION}ms ease`;
+    //         if (overlayText && overlayText.classList.contains('overlay-text')) {
+    //             overlayText.style.display = 'none';
+    //             overlayText.style.opacity = '0';
+    //             overlayText.style.transition = `opacity ${FADE_DURATION}ms ease`;
+    //         }
+    //     });
+    // }
+
+    // initEmptyState();
 });

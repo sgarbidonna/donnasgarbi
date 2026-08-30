@@ -47,11 +47,16 @@
             transition: all 0.3s ease;
             font-family: 'Satoshi', sans-serif;
         }
-        .filter-bar-mobile .filter-btn-mobile.active,
+        .filter-bar-mobile .filter-btn-mobile.active {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.6);
+            color: #fff;
+        }
         .filter-bar-mobile .filter-btn-mobile:hover {
             background: rgba(255,255,255,0.15);
             border-color: rgba(255,255,255,0.6);
             color: #fff;
+            transform: translateY(-1px);
         }
         @media (max-width: 768px) {
             .filter-bar-mobile {
@@ -83,7 +88,6 @@
             </nav>
                         <!-- FILTRO DE CATEGORÍAS (desktop) -->
             <div class="filter-bar">
-                <button class="filter-btn active" data-filter="todos">todas</button>
                 <button class="filter-btn" data-filter="dibujo">dibujo</button>
                 <button class="filter-btn" data-filter="pintura">pintura</button>
                 <button class="filter-btn" data-filter="video">video</button>
@@ -93,7 +97,6 @@
 
             <!-- FILTRO DE CATEGORÍAS (mobile - solo visible en el menú desplegable) -->
             <div class="filter-bar-mobile">
-                <button class="filter-btn-mobile active" data-filter="todos">todas</button>
                 <button class="filter-btn-mobile" data-filter="dibujo">dibujo</button>
                 <button class="filter-btn-mobile" data-filter="pintura">pintura</button>
                 <button class="filter-btn-mobile" data-filter="video">video</button>
@@ -404,66 +407,6 @@
 
    <script src="./filter.js"></script>
 
-   <!-- Filtros mobile: lógica de filtrado para items mobile -->
-   <script>
-   document.addEventListener('DOMContentLoaded', function() {
-       const filterBtns = document.querySelectorAll('.filter-btn-mobile');
-       const mobileItems = document.querySelectorAll('.section-b-mobile .grid-item-mobile');
-       const mobileOverlays = document.querySelectorAll('.section-b-mobile .overlay-text');
-
-       filterBtns.forEach(btn => {
-           btn.addEventListener('click', function() {
-               // Actualizar estado activo
-               filterBtns.forEach(b => b.classList.remove('active'));
-               this.classList.add('active');
-
-               const filter = this.getAttribute('data-filter');
-
-               // Ocultar todo primero
-               mobileItems.forEach(item => {
-                   item.style.display = 'none';
-               });
-               mobileOverlays.forEach(overlay => {
-                   overlay.style.display = 'none';
-               });
-
-               if (filter === 'todos') {
-                   // Mostrar todos
-                   mobileItems.forEach(item => {
-                       item.style.display = '';
-                   });
-                   mobileOverlays.forEach(overlay => {
-                       overlay.style.display = '';
-                   });
-               } else {
-                   // Mostrar solo los que coinciden
-                   mobileItems.forEach((item, index) => {
-                       const category = item.getAttribute('data-category') || '';
-                       if (category.includes(filter)) {
-                           item.style.display = '';
-                           // Mostrar el overlay correspondiente
-                           if (mobileOverlays[index]) {
-                               mobileOverlays[index].style.display = '';
-                           }
-                       }
-                   });
-               }
-
-               // Cerrar el menú móvil después de seleccionar un filtro
-               const sectionA = document.getElementById('section-a');
-               if (sectionA) {
-                   sectionA.style.transform = 'translateX(-100%)';
-                   sectionA.style.pointerEvents = 'none';
-               }
-               const toggleBtn = document.getElementById('toggle-menu');
-               if (toggleBtn) {
-                   toggleBtn.style.opacity = '1';
-                   toggleBtn.style.pointerEvents = 'auto';
-               }
-           });
-       });
-   });
-   </script>
 
    <!-- no se p q sirve -->
    <script src='https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.21/ua-parser.min.js'></script>
