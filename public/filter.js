@@ -90,8 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // --- Mobile (section-b-mobile) ---
-        mobileItems().forEach(img => {
-            const categories = getCategories(img);
+        // En mobile hay tanto .grid-item como .grid-item-mobile; cubrimos ambos.
+        const allMobileImgs = document.querySelectorAll(
+            '.section-b-mobile .grid-item, .section-b-mobile .grid-item-mobile'
+        );
+        allMobileImgs.forEach(img => {
+            // Para .grid-item dentro de <a>, el data-category está en el <a> padre
+            // Para .grid-item-mobile, el data-category está en el propio img
+            let categoryEl = img;
+            const parentLink = img.closest('a');
+            if (parentLink && parentLink.dataset.category) {
+                categoryEl = parentLink;
+            }
+            const categories = getCategories(categoryEl);
             const overlayText = getMobileOverlay(img);
             const shouldShow = matchesAnyFilter(categories);
 
@@ -157,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // // visibles al cargar la página. Cuando el usuario active un filtro, las
     // // obras correspondientes se mostrarán con fadeIn.
     // function initEmptyState() {
+    //     // Desktop
     //     desktopItems().forEach(img => {
     //         const parentLink = getDesktopParent(img);
     //         if (!parentLink) return;
@@ -164,7 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //         parentLink.style.opacity = '0';
     //         parentLink.style.transition = `opacity ${FADE_DURATION}ms ease`;
     //     });
-    //     mobileItems().forEach(img => {
+
+    //     // Mobile: cubre .grid-item y .grid-item-mobile
+    //     const allMobileImgs = document.querySelectorAll(
+    //         '.section-b-mobile .grid-item, .section-b-mobile .grid-item-mobile'
+    //     );
+    //     allMobileImgs.forEach(img => {
     //         const overlayText = getMobileOverlay(img);
     //         img.style.display = 'none';
     //         img.style.opacity = '0';
