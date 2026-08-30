@@ -1,132 +1,187 @@
-const gridItems_mobile = document.querySelectorAll('.grid-item-mobile');
-const previewImage_mobile = document.getElementById('preview-image');
-const artTitle_mobile = document.getElementById('art-title');
-const artSize_mobile = document.getElementById('art-size');
-const artYear_mobile = document.getElementById('art-year');
-const artTechnique_mobile = document.getElementById('art-technique');
+/* ============================================================
+   image-visualization-mobile.js
+   ------------------------------------------------------------
+   Comportamiento mobile de la sección-b-mobile:
 
-const updatePreview = (item) => {
-    previewImage_mobile.style.opacity = '1'; // Desvanecer la imagen actual
-   
-    const newSrc_mobile = item.getAttribute('src');
-    previewImage_mobile.setAttribute('src', newSrc);
-    artTitle_mobile.textContent = item.getAttribute('data-title');
-    artSize_mobile.textContent =  " - " + item.getAttribute('data-size');
-    artYear_mobile.textContent = item.getAttribute('data-year');
-    artTechnique_mobile.textContent = item.getAttribute('data-technique');
-    
-    if (window.innerWidth < 1024) {
-        console.log('window menor q 1024');
-        setPreviewLinkByTitle();
-    } else{
-        const parentLink_mobile = item.closest('a'); 
-        if (parentLink) {
-            previewImage_mobile.setAttribute('onclick', `window.location.href='${parentLink}'`);
+   1. Arrows ← → : se mantienen como señaletica y quedan
+      funcionales para deslizar el grid horizontalmente.
+   2. Grid  : se desliza hacia izquierda y derecha (scroll
+      horizontal nativo + botones de flecha).
+   3. Click sobre una miniatura : visualiza la imagen y su
+      información en la section-c-index (preview-image,
+      art-title, art-year, art-size, art-technique).
+      Un click sobre la imagen preview navega a la página
+      de la obra correspondiente.
+   ============================================================ */
+
+(function () {
+    'use strict';
+
+    /* Solo se activa en mobile (mismo breakpoint que el CSS). */
+    const isMobile = () => window.innerWidth <= 1025;
+
+    const sectionBMobile = document.querySelector('.section-b-mobile');
+    if (!sectionBMobile) return;
+
+    const grid = sectionBMobile.querySelector('.grid');
+    const arrowsContainer = sectionBMobile.querySelector('.arrows-mobile');
+    const previewImage = document.getElementById('preview-image');
+    const artTitle    = document.getElementById('art-title');
+    const artSize     = document.getElementById('art-size');
+    const artYear     = document.getElementById('art-year');
+    const artTechnique = document.getElementById('art-technique');
+
+    if (!grid || !previewImage) return;
+
+    /* ----------------------------------------------------------
+       1. ARROWS ← →  : deslizar el grid horizontalmente
+       ---------------------------------------------------------- */
+    if (arrowsContainer) {
+        const arrowDivs = arrowsContainer.querySelectorAll('div');
+        arrowDivs.forEach((div) => {
+            div.style.cursor = 'pointer';
+            div.style.userSelect = 'none';
+
+            div.addEventListener('click', () => {
+                if (!isMobile()) return;
+                /* Paso = 80% del ancho visible del grid */
+                const step = Math.round(grid.clientWidth * 0.8);
+                const text = div.textContent || '';
+                if (text.indexOf('←') !== -1) {
+                    grid.scrollBy({ left: -step, behavior: 'smooth' });
+                } else if (text.indexOf('→') !== -1) {
+                    grid.scrollBy({ left: step, behavior: 'smooth' });
+                }
+            });
+        });
+    }
+
+    /* ----------------------------------------------------------
+       2. Mapeo título → página de la obra
+       (fallback para miniaturas que no están dentro de un <a>)
+       ---------------------------------------------------------- */
+    const getLinkByTitle = (title) => {
+        const map = {
+            'Entre la multitud': './entre-la-multitud.html',
+            'Pasillo secreto': './pasillo-secreto.html',
+            'Desde esta firmeza': './testigos.html',
+            'Rearme y austeridad': './rearme-y-austeridad.html',
+            'Quedaron atrás las horas del mal trago': './testigos.html',
+            'Llave maestra': './testigos.html',
+            'Detrás, ajeno en el humo': './testigos.html',
+            'La sombra del paso en la retirada': './testigos.html',
+            'En camino': './plastico-piel.html',
+            'Plástico piel': './plastico-piel.html',
+            'Escenas del desamor': './escenas-del-desamor.html',
+            'Emboscada: El menor punto, la menor linea, la menor mancha': './emboscada.html',
+            'Sin título - SERIE PINTURAS ROJAS': './rojas.html',
+            'Vital y Dulce': './vital-dulce-suerte.html',
+            'Suerte': './vital-dulce-suerte.html',
+            'Juntas': './juntas.html',
+            'Síncopa': './ritmo.html',
+            'Cantante': './ritmo.html',
+            'Bossanova': './ritmo.html',
+            'Caminamos': './carbonillas.html',
+            'Desafía': './carbonillas.html',
+            'Acento': './acento.html',
+            'Bis': './bis.html',
+            'Sacudir la oscuridad trajo polvo de estrellas': './estrellas.html',
+            'Tren': './tren.html',
+            'Sin título': './pinturas-digitales.html',
+            'Sombra': './instalaciones.html',
+            'Sostén el vacío': './instalaciones.html'
+        };
+        return map[title] || '';
+    };
+
+    /* ----------------------------------------------------------
+       3. Marcar miniatura activa
+       ---------------------------------------------------------- */
+    const setActiveItem = (item) => {
+        const allImgs = grid.querySelectorAll('img');
+        allImgs.forEach((img) => img.classList.remove('active'));
+        item.classList.add('active');
+    };
+
+    /* ----------------------------------------------------------
+       4. Actualizar el preview en section-c-index
+       ---------------------------------------------------------- */
+    const updatePreview = (item) => {
+        const newSrc      = item.getAttribute('src') || '';
+        const title       = item.getAttribute('data-title') || '';
+        const size        = item.getAttribute('data-size') || '';
+        const year        = item.getAttribute('data-year') || '';
+        const technique   = item.getAttribute('data-technique') || '';
+
+        /* Fade out → actualizar contenido → fade in cuando carga */
+        previewImage.style.opacity = '0';
+
+        /* Texto */
+        artTitle.textContent     = title;
+        artYear.textContent      = year;
+        artSize.textContent      = size ? ' - ' + size : '';
+        artTechnique.textContent = technique;
+
+        /* Link de navegación: prioridad al <a> padre, fallback al mapa */
+        const parentLink = item.closest('a');
+        let hrefLink = parentLink ? parentLink.getAttribute('href') : '';
+        if (!hrefLink) {
+            hrefLink = getLinkByTitle(title);
         }
-    }
+        if (hrefLink) {
+            previewImage.setAttribute('data-href', hrefLink);
+            previewImage.style.cursor = 'pointer';
+        } else {
+            previewImage.removeAttribute('data-href');
+            previewImage.style.cursor = 'default';
+        }
 
-};
+        /* Cargar imagen y mostrar */
+        previewImage.onload = () => {
+            previewImage.style.opacity = '1';
+        };
+        previewImage.onerror = () => {
+            previewImage.style.opacity = '1';
+        };
+        previewImage.setAttribute('src', newSrc);
+        previewImage.setAttribute('alt', title);
+    };
 
-const resetPreview = () => {
-    previewImage_mobile.style.opacity = '0'; 
-    previewImage_mobile.setAttribute('src', '');
-    artTitle_mobile.textContent = '';
-    artSize_mobile.textContent = '';    
-    artYear_mobile.textContent = '';
-    artTechnique_mobile.textContent = '';
-};
+    /* ----------------------------------------------------------
+       5. Click sobre una miniatura (event delegation)
+       Soporta filtrado dinámico (filter.js oculta/muestra items)
+       ---------------------------------------------------------- */
+    grid.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        const item = e.target.closest('img');
+        if (!item) return;
 
+        /* Evitar que el <a> padre navegue al hacer click en mobile */
+        e.preventDefault();
+        e.stopPropagation();
 
-const setPreviewLinkByTitle = () => {
-    let hrefLink = ''; 
+        updatePreview(item);
+        setActiveItem(item);
 
-    switch (artTitle_mobile.textContent) {
-        case 'Sin título - SERIE PINTURAS ROJAS':
-            hrefLink = './rojas.html'; 
-            break;
-        case 'Vital y Dulce':
-            hrefLink = './vital-dulce-suerte.html'; 
-            break;
-        case 'Suerte':
-            hrefLink = './vital-dulce-suerte.html'; 
-            break;
-        case 'Juntas':
-            hrefLink = './juntas.html'; 
-            break;
-        case 'Síncopa':
-            hrefLink = './ritmo.html'; 
-            break;
-        case 'Cantante':
-            hrefLink = './ritmo.html'; 
-            break;
-        case 'Bossanova':
-            hrefLink = './ritmo.html'; 
-            break;
-        case 'Caminamos':
-            hrefLink = './carbonillas.html'; 
-            break;
-        case 'Desafía':
-            hrefLink = './carbonillas.html'; 
-            break;
-        case 'Acento':
-            hrefLink = './acento.html'; 
-            break;
-        case 'Bis':
-            hrefLink = './bis.html'; 
-            break;
-        case 'Sacudir la oscuridad trajo polvo de estrellas':
-            hrefLink = './estrellas.html'; 
-            break;
-        case 'Tren':
-            hrefLink = './tren.html'; 
-            break;
-        case 'Sin título':
-            hrefLink = './pinturas-digitales.html'; 
-            break;
-        case 'Sombra':
-            hrefLink = './instalaciones.html'; 
-            break;
-        case 'Sostén el vacío':
-            hrefLink = './instalaciones.html'; 
-            break;
-        default:
-            hrefLink = ''; 
-    }
-    if (hrefLink) {
-        previewImage_mobile.setAttribute('onclick', `window.location.href='${hrefLink}'`);
-        
-    } else {
-        previewImage_mobile.removeAttribute('onclick'); 
-    }
-};
+        /* Centrar suavemente la miniatura clickeada en el grid */
+        const itemRect = item.getBoundingClientRect();
+        const gridRect = grid.getBoundingClientRect();
+        const offset = (itemRect.left - gridRect.left)
+                     - (gridRect.width / 2)
+                     + (itemRect.width / 2);
+        grid.scrollBy({ left: offset, behavior: 'smooth' });
+    });
 
-gridItems_mobile.forEach(item => {
-    if (window.innerWidth >= 768) {
-        item.addEventListener('mouseover', () => {
-            updatePreview(item);    
-        });
-    } else  {
-        item.addEventListener('touchstart', () => {
-            updatePreview(item);
-            console.log('item add event lstener touchstart');
-        });
-    } 
-});
+    /* ----------------------------------------------------------
+       6. Click sobre la imagen preview → navegar a la obra
+       ---------------------------------------------------------- */
+    previewImage.addEventListener('click', () => {
+        if (!isMobile()) return;
+        const href = previewImage.getAttribute('data-href');
+        if (href) {
+            window.location.href = href;
+        }
+    });
 
-
-document.addEventListener('mouseover', (event) => {
-    const isGridItem_mobile = event.target.closest('.grid-item'); 
-    if (!isGridItem_mobile) {
-        resetPreview();
-    }
-});
-
-document.addEventListener('touchstart', (event) => {
-    const isGridItem_mobile = event.target.closest('.grid-item');
-    const isPreviewImage_mobile = event.target === previewImage_mobile; 
-    if (!isGridItem_mobile && !isPreviewImage_mobile) { 
-        resetPreview();
-    }
-});
-
-console.log('entro a imagevisualizaion mibule');
+    console.log('image-visualization-mobile.js cargado');
+})();

@@ -581,7 +581,7 @@ body {
 
     
     align-items: flex-end;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid black;
     gap: 0.5rem;
     padding-top: 15px; 
     margin-top: 53vh; 
@@ -751,6 +751,7 @@ body {
         scroll-snap-type: x proximity;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        touch-action: pan-x;
     }
     .section-b-mobile .grid::-webkit-scrollbar {
         display: none;
@@ -783,6 +784,16 @@ body {
     .arrows-mobile div{
         padding-left: 50px;
         padding-right: 50px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    /* Miniatura activa en el grid mobile */
+    .section-b-mobile .grid img.active {
+        opacity: 0.55;
+        box-shadow: 0 0 0 2px #000;
+        transition: opacity 0.3s ease, box-shadow 0.3s ease;
     }
     .section-c {
         max-width: 100%;
