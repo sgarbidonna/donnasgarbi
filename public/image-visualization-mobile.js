@@ -119,7 +119,7 @@
         /* Texto */
         artTitle.textContent     = title;
         artYear.textContent      = year;
-        artSize.textContent      = size ? ' - ' + size : '';
+        artSize.textContent      = size ? '' + size : '';
         artTechnique.textContent = technique;
 
         /* Link de navegación: prioridad al <a> padre, fallback al mapa */

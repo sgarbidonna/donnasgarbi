@@ -850,7 +850,6 @@ body {
     }
     /* Detalles (text-info) abajo, alineados a la izquierda */
     .section-c-index .text-info {
-        padding-top: -15px;
         position: static;
         flex: 0 0 auto;
         width: 100%;
@@ -858,20 +857,31 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0px;
+        gap: 4px;
+    }
+    /* Título arriba de los datos, en su propia línea */
+    .section-c-index .text-info #art-title {
+        display: block;
+        width: 100%;
+        margin: 0 0 6px 0;
     }
 
-    .text-info {
+    /* .text-info {
         position: absolute;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-end;
         gap: 10px;
+    } */
+    .inline-info{
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
     }
-
-    #art-technique, #art-year{
-        /* display: none; */
+    /* En mobile sí mostramos año y técnica */
+    #art-technique{
+        width: 62%;
     }
 /* creo q no existe
 
