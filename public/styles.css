@@ -850,6 +850,7 @@ body {
     }
     /* Detalles (text-info) abajo, alineados a la izquierda */
     .section-c-index .text-info {
+        padding-top: -15px;
         position: static;
         flex: 0 0 auto;
         width: 100%;
@@ -857,7 +858,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px;
+        gap: 0px;
     }
 
     .text-info {
