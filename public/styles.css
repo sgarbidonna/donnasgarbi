@@ -582,10 +582,11 @@ body {
 
     
     align-items: flex-end;
-    border-top: 1px solid black;
+    /* border-top: 1px solid #ccc; */
     gap: 0.5rem;
     padding-top: 15px; 
-    margin-top: 53vh; 
+    /* margin-top: 50vh;  */
+    margin-top: 5vh; 
 }
 
 .filter-btn {
@@ -599,7 +600,7 @@ body {
     color: #ccc;
     transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     padding: 0 0 2px 0;
-    letter-spacing: 0.04em;
+    /* letter-spacing: 0.04em; */
     white-space: nowrap;
     opacity: 0.85;
 }
@@ -659,7 +660,8 @@ body {
     font-family: 'Cabinet Grotesk', sans-serif;
     text-transform: lowercase;
 
-    color: black;
+    /* color: black; */
+       color: #ccc;
     padding: 0 0 2px 0;
     font-size: 1rem;
  }
