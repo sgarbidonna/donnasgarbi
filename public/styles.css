@@ -308,6 +308,7 @@ body {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none;
+    display: grid;
 }
 
 .mobile-menu-btn {
@@ -880,10 +881,12 @@ body {
         align-items: flex-end;
         gap: 10px;
     } */
-    .inline-info{
+    .inline-info {
         display: flex;
         gap: 20px;
         align-items: flex-start;
+        justify-content: space-evenly;
+        width: 100%;
     }
     /* En mobile sí mostramos año y técnica */
     #art-technique{
@@ -956,7 +959,7 @@ body {
         margin-bottom: 20px; */
         display: grid;
         justify-items: end;
-        width: 80vw;
+        width: 100%;
         gap: 5px;
         height: max-content;
     }
