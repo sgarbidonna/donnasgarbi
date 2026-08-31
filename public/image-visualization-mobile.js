@@ -136,14 +136,14 @@
             previewImage.style.cursor = 'default';
         }
 
-        /* Cargar imagen y mostrar */
-        previewImage.onload = () => {
+        /* Cargar imagen y mostrar (maneja el caso en que el src no cambia) */
+        if (previewImage.getAttribute('src') === newSrc) {
             previewImage.style.opacity = '1';
-        };
-        previewImage.onerror = () => {
-            previewImage.style.opacity = '1';
-        };
-        previewImage.setAttribute('src', newSrc);
+        } else {
+            previewImage.onload = () => { previewImage.style.opacity = '1'; };
+            previewImage.onerror = () => { previewImage.style.opacity = '1'; };
+            previewImage.setAttribute('src', newSrc);
+        }
         previewImage.setAttribute('alt', title);
     };
 
@@ -175,13 +175,33 @@
     /* ----------------------------------------------------------
        6. Click sobre la imagen preview → navegar a la obra
        ---------------------------------------------------------- */
-    previewImage.addEventListener('click', () => {
+    previewImage.addEventListener('click', (e) => {
         if (!isMobile()) return;
         const href = previewImage.getAttribute('data-href');
         if (href) {
             window.location.href = href;
         }
     });
+
+    /* ----------------------------------------------------------
+       7. Neutralizar el resetPreview() del script desktop
+       images-visualization.js escucha mouseover/touchstart a nivel
+       document y, si el target no está dentro de .grid-item, llama a
+       resetPreview() que vacía el src y los textos. En mobile esto
+       "rompe" la imagen al tocarla. Detenemos la propagación de esos
+       eventos cuando se originan dentro de section-c-index, para que
+       nunca lleguen al listener de document.
+       ---------------------------------------------------------- */
+    const sectionCIndex = document.querySelector('.section-c-index');
+    if (sectionCIndex) {
+        const stop = (e) => {
+            if (isMobile()) e.stopPropagation();
+        };
+        ['mouseover', 'mouseout', 'mousemove', 'mouseenter', 'mouseleave',
+         'touchstart', 'touchmove', 'touchend', 'mousedown', 'mouseup'].forEach((evt) => {
+            sectionCIndex.addEventListener(evt, stop, { passive: true });
+        });
+    }
 
     console.log('image-visualization-mobile.js cargado');
 })();

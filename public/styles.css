@@ -742,23 +742,24 @@ body {
         flex-wrap: nowrap;
         gap: 10px;
         padding: 0 20px;
+        box-sizing: border-box;
         align-items: flex-start;
-        width: max-content;
-        max-width: none;
+        width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
         scroll-snap-type: x proximity;
         -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
         scrollbar-width: none;
         touch-action: pan-x;
     }
     .section-b-mobile .grid::-webkit-scrollbar {
         display: none;
     }
-    .section-b-mobile .grid > a {
+    /* Todos los hijos directos del grid (a, img) no se encogen: scroll horizontal real */
+    .section-b-mobile .grid > * {
         flex: 0 0 auto;
-        display: inline-block;
         scroll-snap-align: start;
     }
     .section-b-mobile .grid-item,
@@ -815,13 +816,10 @@ body {
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 20px 10px 20px;
+        padding: 50px 20px 20px 20px;
         background-color: whitesmoke;
         box-sizing: border-box;
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow: hidden;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
     }
@@ -829,28 +827,37 @@ body {
         display: none;
     }
 
-    .section-c-index .details{
+    /* .details ocupa todo el espacio: imagen arriba, texto abajo */
+    .section-c-index .details {
+        flex: 1 1 auto;
+        min-height: 0;
         width: 100%;
-        height: 100%;
         display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
         box-sizing: border-box;
     }
+    /* Imagen: ocupa el espacio disponible y queda centrada (object-fit + align-self) */
     .section-c-index img#preview-image {
+        flex: 1 1 auto;
+        min-height: 0;
         width: auto;
         max-width: 100%;
-        max-height: 55vh;
+        max-height: 100%;
         object-fit: contain;
-        margin-bottom: 8px;
+        align-self: center;
         cursor: pointer;
+        transition: opacity 0.5s ease;
     }
+    /* Detalles (text-info) abajo, alineados a la izquierda */
     .section-c-index .text-info {
         position: static;
-        text-align: center;
+        flex: 0 0 auto;
         width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
     }
 
     .text-info {
@@ -863,7 +870,7 @@ body {
     }
 
     #art-technique, #art-year{
-        display: none;
+        /* display: none; */
     }
 /* creo q no existe
 
