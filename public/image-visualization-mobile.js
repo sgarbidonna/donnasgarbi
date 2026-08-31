@@ -191,17 +191,37 @@
        "rompe" la imagen al tocarla. Detenemos la propagación de esos
        eventos cuando se originan dentro de section-c-index, para que
        nunca lleguen al listener de document.
+
+       IMPORTANTE: también hay que proteger los controles del menú
+       mobile (#toggle-menu, #close-menu-btn) y el panel del menú
+       completo (#section-a), porque están FUERA de .section-c-index.
+       Si no lo hacemos, al tocar el botón ☰ el touchstart burbujea
+       hasta document y resetPreview() vacía la preview cargada,
+       mostrando el icono de imagen rota + el alt text.
        ---------------------------------------------------------- */
-    const sectionCIndex = document.querySelector('.section-c-index');
-    if (sectionCIndex) {
-        const stop = (e) => {
-            if (isMobile()) e.stopPropagation();
-        };
-        ['mouseover', 'mouseout', 'mousemove', 'mouseenter', 'mouseleave',
-         'touchstart', 'touchmove', 'touchend', 'mousedown', 'mouseup'].forEach((evt) => {
-            sectionCIndex.addEventListener(evt, stop, { passive: true });
+    const stop = (e) => {
+        if (isMobile()) e.stopPropagation();
+    };
+    const protectedEvents = [
+        'mouseover', 'mouseout', 'mousemove', 'mouseenter', 'mouseleave',
+        'touchstart', 'touchmove', 'touchend',
+        'mousedown', 'mouseup', 'click'
+    ];
+
+    const attachStopPropagation = (el) => {
+        if (!el) return;
+        protectedEvents.forEach((evt) => {
+            el.addEventListener(evt, stop, { passive: true });
         });
-    }
+    };
+
+    /* 7.a. section-c-index (preview + textos) */
+    attachStopPropagation(document.querySelector('.section-c-index'));
+
+    /* 7.b. Botón hamburguesa ☰, botón cerrar × y panel del menú */
+    attachStopPropagation(document.getElementById('toggle-menu'));
+    attachStopPropagation(document.getElementById('close-menu-btn'));
+    attachStopPropagation(document.getElementById('section-a'));
 
     console.log('image-visualization-mobile.js cargado');
 })();
