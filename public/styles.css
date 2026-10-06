@@ -637,10 +637,11 @@ body {
 }
 
 
-
+.bio a,
 .p-identar a{
     text-underline-position: from-font;
     text-decoration-line: underline;
+    color: #000;
 }
 /* Mobile: ajustar gap del filtro */
 @media (max-width: 768px) {
